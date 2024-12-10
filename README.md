@@ -1,12 +1,12 @@
-Portafolio:
-Páginas en wordpress:
-https://quehacerfiscal.caribeservice.net/
-https://cancunvidasanasitio.caribeservice.net/
-https://caficamx.caribeservice.net/
-https://demo2.caribeservice.net/
-https://rhcprojects.com/ (elementor)
-https://kaalot.com/ (elementor)
-Sistema en PHP
-https://programacionaldia.com/
-React Native
-https://snack.expo.dev/@jesusdv10/github.com-aythen1-linkeram-jesus
+Portafolio:<br>
+Páginas en wordpress:<br>
+https://quehacerfiscal.caribeservice.net/<br>
+https://cancunvidasanasitio.caribeservice.net/<br>
+https://caficamx.caribeservice.net/<br>
+https://demo2.caribeservice.net/<br>
+https://rhcprojects.com/ (elementor)<br>
+https://kaalot.com/ (elementor)<br>
+Sistema en PHP<br>
+https://programacionaldia.com/<br>
+React Native<br>
+https://snack.expo.dev/@jesusdv10/github.com-aythen1-linkeram-jesus<br>
