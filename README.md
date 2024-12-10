@@ -5,6 +5,7 @@ https://cancunvidasanasitio.caribeservice.net/<br>
 https://caficamx.caribeservice.net/<br>
 https://demo2.caribeservice.net/<br>
 https://mitsaconsultores1.caribeservice.net/<br>
+https://sitiodemo2.caribeservice.net/<br>
 https://chuy2amantes.com/<br>
 https://rhcprojects.com/ (elementor)<br>
 https://kaalot.com/ (elementor)<br>
