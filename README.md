@@ -6,7 +6,7 @@ https://caficamx.caribeservice.net/<br>
 https://demo2.caribeservice.net/<br>
 https://mitsaconsultores1.caribeservice.net/<br>
 https://quehacerfiscal.com/<br>
-https://www.accionestelmex.net/<br>
+https://accionestelmex.net/<br>
 https://chuy2amantes.com/<br>
 https://rhcprojects.com/ (elementor)<br>
 https://kaalot.com/ (elementor)<br>
