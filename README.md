@@ -1,13 +1,6 @@
 <h1>Portafolio</h1><br>
 Páginas en wordpress:<br>
-
-
-https://caficamx.caribeservice.net/<br>
-https://mitsaconsultores1.caribeservice.net/<br>
-https://firmecapital.caribeservice.net/<br>
-https://transmark.caribeservice.net/<br>
-https://sidfarma.caribeservice.net/<br>
-https://demosite2.caribeservice.net/<br>
+https://www.caficamx.com/<br>
 https://rafaelibanez.com.mx/<br>
 https://quehacerfiscal.com/<br>
 https://accionestelmex.net/<br>
