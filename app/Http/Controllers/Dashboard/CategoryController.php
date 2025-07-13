@@ -21,24 +21,27 @@ class CategoryController extends Controller
      */
    public function index()
 {
-    $categories = Category::paginate(4);
+    session( [ 'msj' => 'Welcome to the Category Index!' ] ); // Example session message, can be removed or modified as needed
 
+    $categories = Category::paginate(4);
+    
+    //session()->forget('msj'); // Clear the session message after use
     // This is equivalent and often preferred for brevity
     return view('dashboard.category.index', compact('categories'));
 }
 
-    public function create()
-    {
-        $category = new Category();
-        return view('dashboard.category.create', compact('categories'));
-    }
+    public function create(Category $category) // <-- Problem 1: You're type-hinting a parameter here
+{
+    //$category = new Category(); // <-- Problem 2: Then you're overwriting it
+    return view('dashboard.category.create', compact('category')); // <-- Problem 3: Uppercase 'Category'
+}
 
     // IMPORTANT: Use the correct alias for the Store Request
      public function store(CatStoreRequest $request)
     {
         Category::create($request->validated());
         // Redirect to category.index after storing
-        return to_route('category.index')->with('success', 'Categoría creada exitosamente!');
+        return to_route('category.index')->with('status', 'Categoría creada exitosamente!');
     }
 
     public function show(Category $category)
@@ -62,7 +65,7 @@ class CategoryController extends Controller
     public function update(CategoryPutRequest $request, Category $category) // Ensure CategoryPutRequest is used
     {
         $category->update($request->validated());
-        return to_route('category.index')->with('success', 'Categoría actualizada exitosamente!');
+        return to_route('category.index')->with('status', 'Categoría actualizada exitosamente!');
     }
 
     /**
@@ -72,6 +75,6 @@ class CategoryController extends Controller
     {
         $category->delete();
         // Redirect to the index page after deletion
-        return to_route('category.index')->with('success', 'Categoría eliminada exitosamente!');
+        return to_route('category.index')->with('status', 'Categoría eliminada exitosamente!');
     }
 }

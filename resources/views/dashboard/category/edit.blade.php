@@ -14,6 +14,12 @@
     </div>
     @endif
 
+    @if (@session('status'))
+        
+            {{ session('status') }}
+        
+     @endif
+
     <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
 

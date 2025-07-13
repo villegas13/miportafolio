@@ -17,6 +17,12 @@
 
   @endif
 
+  @if (@session('status'))
+        
+            {{ session('status') }}
+        
+     @endif
+
     <form action=" {{ route('category.store') }} " method="POST">
         @csrf
         <label for="title">Titulddo</label>

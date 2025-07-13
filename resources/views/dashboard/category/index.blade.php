@@ -13,6 +13,14 @@
 
    </thead>
     <tbody>
+
+     @if (@session('status'))
+        <h1>{{ session('msj') }}</h1>
+            {{ session('status') }}
+        
+      @endif
+          
+
           @foreach ($categories as $c)
     <tr>
         {{-- Check if $p is actually an object before trying to access its properties --}}

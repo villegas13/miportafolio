@@ -15,6 +15,12 @@
 
   @endif
 
+ @if (@session('status'))
+            <h1>{{ session('msj') }}</h1>
+            {{ session('status') }}
+            
+     @endif 
+
     <form action=" {{ route('post.store') }} " method="POST">
         @csrf
         <label for="title">Titulo</label>

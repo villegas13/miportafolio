@@ -12,6 +12,10 @@
 
     </head>
     <body >
+
+     
+     
+
        @yield('content')          
        <section>
          @yield('morecontent')          
