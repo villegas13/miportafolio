@@ -1,4 +1,4 @@
-@extends('master')
+@extends('dashboard.master')
 
 @section('content')
 
@@ -18,13 +18,13 @@
     <form action=" {{ route('post.store') }} " method="POST">
         @csrf
         <label for="title">Titulddo</label>
-        <input type="text" name="title" placeholder="Título">
+        <input type="text" name="title" placeholder="Título" value="{{ old('title', $posts->title ?? '') }}"> {{-- Added old() helper --}}
 
         <label for="title">Slug</label>
-        <input type="text" name="slug" placeholder="Título">
+        <input type="text" name="slug" placeholder="Título" value="{{ old('slug', $posts->slug ?? '') }}"> {{-- Added old() helper and corrected placeholder --}}
 
         <label for="content">Content</label>
-        <textarea name="content"></textarea>    
+        <textarea name="content"> {{ old('content', $posts->content ?? '') }} </textarea>    
 
         <label for="category_id">Category</label>
         
@@ -40,13 +40,14 @@
         </select>
         
         <label for="description">Descripción</label>
-        <textarea name="descripcion" placeholder="Descripción"></textarea>
+        <textarea name="descripcion" placeholder="Descripción"> {{ old('description', $posts->description ?? '') }} </textarea>
 
         <label for="title">Posted</label>
-        <input type="text" name="posted" placeholder="Título">
+        <input type="text" name="posted" placeholder="Título" value="{{ old('posted', $posts->posted ?? '') }}"> {{-- Corrected placeholder --}}
 
         <label for="title">Image</label>
-        <input type="text" name="image" placeholder="image">
+       <img src="{{ asset('uploads/posts/' . $posts->image) }}" alt="">
+         
 
         <button type="submit">Crear</button>
     </form>

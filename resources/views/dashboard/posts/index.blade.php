@@ -46,8 +46,14 @@
             </td>
             <td>
                 {{-- Now it's safe to access $p->id --}}
+                <a href="{{ route('post.show', $p->id) }}">Ver</a>
                 <a href="{{ route('post.edit', $p->id) }}">Editar</a>
                 <a href="{{ route('post.show', $p->id) }}">Detalles</a>
+                <form action="{{ route('post.destroy', $p->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                </form>
             </td>
         @else
             {{-- This block will execute if $p is boolean (false) or null --}}

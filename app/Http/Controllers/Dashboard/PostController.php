@@ -122,11 +122,15 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( Post $posts, $id = null)
     {
         // Find and display a single post.
-        $post = Post::findOrFail($id); // Find the post or throw a 404 error
-        return view('dashboard.posts.show', compact('post'));
+        $posts = Post::findOrFail($id); // Find the post or throw a 404 error
+        
+
+        $categories = Category::pluck( 'id', 'title'); // Fetch all categories
+        return view('dashboard.posts.show', compact('categories','posts'));
+        
     }
 
     /**
@@ -146,38 +150,88 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PutRequest $request, Post $post) // <-- Correct way to inject
+    public function update(PutRequest $request,Post $post, $id = null)
     {
-        // $request will automatically be an instance of PutRequest,
-        // and Laravel will have already run its validation rules.
+        // 1. Get validated data immediately
+        $data = $request->validated();
 
-        // Access validated data like this:
-        $validatedData = $request->validated();
+        // 2. Check if a new image was uploaded and is valid
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $uploadedImage = $request->file('image');
 
-        // Update the post
-        $post->update($validatedData);
-        $posts = Post::create($request->all()); 
+            // Debug Step A: Check the UploadedFile object just before attempting to move
+            // What does this output? Is it an UploadedFile object?
+            // Does its getPathname() point to a real temp file (like E:\xampp\tmp\phpXYZ.tmp)?
+            // dd('Before move:', [
+            //     'uploadedImage' => $uploadedImage,
+            //     'originalName' => $uploadedImage->getClientOriginalName(),
+            //     'tempPath' => $uploadedImage->getPathname(),
+            //     'isValid' => $uploadedImage->isValid(),
+            //     'error' => $uploadedImage->getError(), // Check PHP upload error codes
+            //     'publicPath' => public_path('uploads/posts'),
+            //     'targetFilename' => $filename = time() . '.' . $uploadedImage->extension(),
+            // ]);
 
-        // Redirect or return response
-       // return redirect()->route('post.index') ->with('posts', $posts);
+            // Generate filename only if needed
+            $filename = time() . '.' . $uploadedImage->extension();
 
-       dd(public_path('images/posts/' . $post->image));
-        // Update the post with the validated data
-        $post->update($request->all());
+            // 3. Delete the old image (using Storage facade for robustness)
+            // if ($post->image && Storage::disk('public')->exists('uploads/posts/' . $post->image)) {
+            //     try {
+            //         Storage::disk('public')->delete('uploads/posts/' . $post->image);
+            //         // Log::info('Old image deleted: ' . $post->image); // Optional: log success
+            //     } catch (\Exception $e) {
+            //         Log::error("Error deleting old image: " . $post->image . " - " . $e->getMessage());
+            //         // Decide if this should stop the process or just log
+            //     }
+            // }
 
-        // Redirect to the index page with a success message
-        return redirect()->route('dashboard.posts.index')->with('success', 'Post updated successfully!');
+            // 4. Attempt to move the new image
+            try {
+                // Ensure the target directory exists and has write permissions for the web server
+                if (!file_exists(public_path('uploads/posts'))) {
+                    mkdir(public_path('uploads/posts'), 0775, true); // Create directory if it doesn't exist
+                    // Log::info('Created uploads/posts directory.'); // Optional: log creation
+                }
+
+                $uploadedImage->move(public_path('uploads/posts'), $filename);
+                $data['image'] = $filename; // Update the 'image' field in $data with the new filename
+
+                // Debug Step B: Check if move was successful (this line will only be reached if move works)
+                // dd('Move successful!', public_path('uploads/posts') . '/' . $filename);
+
+            } catch (\Exception $e) {
+                // Debug Step C: This catch block will execute if $uploadedImage->move() throws an error
+               // Log::error("Error moving uploaded image: " . $e->getMessage());
+                // You can also dd() here to see the specific exception
+                // dd('Move failed:', $e->getMessage(), $e->getFile(), $e->getLine());
+
+                return back()->withInput()->withErrors(['image' => 'Error uploading image. Please try again.']);
+            }
+
+        } else {
+            // If no new image is provided, retain the existing image name
+            $data['image'] = $post->image;
+        }
+
+        // 5. Update the post with the (potentially updated) data
+        $post = Post::findOrFail($id);
+        $post->update($data);
+
+        // 6. Redirect to the index page with a success message
+     return view('dashboard.posts.index', ['posts' => $post]);
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Post $posts)
     {
         // Delete a post from the database.
         $post = Post::findOrFail($id);
         $post->delete();
-
-        return redirect()->route('dashboard.posts.index')->with('success', 'Post deleted successfully!');
+        return view('dashboard.posts.index', ['posts' => $posts]);
     }
 }
