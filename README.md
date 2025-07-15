@@ -12,4 +12,6 @@ https://programacionaldia.com/<br>
 https://tutiendablog.com/<br>
 React Native<br>
 https://snack.expo.dev/@jesusdv10/github.com-aythen1-linkeram-jesus<br>
+<strong>Proyectos Laravel</strong><br>
+http://crudlaravel.tutiendablog.com/
 
