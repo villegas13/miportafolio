@@ -11,6 +11,6 @@ React Native<br>
 https://snack.expo.dev/@jesusdv10/github.com-aythen1-linkeram-jesus<br>
 <strong>Proyectos Laravel</strong><br>
 Crud simple
-http://crudlaravel.tutiendablog.com/
+http://crudlaravel.tutiendablog.com/<br>
 Crud de imágenes con validación
 https://crudimagenes.tutiendablog.com/
