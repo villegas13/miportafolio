@@ -13,4 +13,6 @@ https://snack.expo.dev/@jesusdv10/github.com-aythen1-linkeram-jesus<br>
 Crud simple
 http://crudlaravel.tutiendablog.com/<br>
 Crud de imágenes con validación
-https://crudimagenes.tutiendablog.com/
+https://crudimagenes.tutiendablog.com/<br>
+Plantilla AdminLTE
+https://adminlte.tutiendablog.com/
