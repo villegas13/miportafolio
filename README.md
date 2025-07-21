@@ -15,4 +15,6 @@ http://crudlaravel.tutiendablog.com/<br>
 Crud de imágenes con validación
 https://crudimagenes.tutiendablog.com/<br>
 Plantilla AdminLTE
-https://adminlte.tutiendablog.com/
+https://adminlte.tutiendablog.com/<br>
+Blog
+https://blog.tutiendablog.com/
