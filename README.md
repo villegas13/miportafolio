@@ -1,5 +1,5 @@
 <h1><strong>Portafolio</strong></h1><br>
-<br></strong>Páginas en wordpress:</strong><br>
+</strong>Páginas en wordpress:</strong><br>
 https://www.caficamx.com/<br>
 https://rafaelibanez.com.mx/<br>
 https://quehacerfiscal.com/<br>
