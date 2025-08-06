@@ -18,5 +18,5 @@ Plantilla AdminLTE
 https://adminlte.tutiendablog.com/<br>
 Blog
 https://blog.tutiendablog.com/<br>
-Inteligencia Artificlal(PHP y Mysql)
+Inteligencia Artificlal(PHP y Mysql)<br>
 https://sistemainventario.tutiendablog.com/
