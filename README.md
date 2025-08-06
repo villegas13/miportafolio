@@ -17,4 +17,6 @@ https://crudimagenes.tutiendablog.com/<br>
 Plantilla AdminLTE
 https://adminlte.tutiendablog.com/<br>
 Blog
-https://blog.tutiendablog.com/
+https://blog.tutiendablog.com/<br>
+Inteligencia Artificlal(PHP y Mysql)
+https://sistemainventario.tutiendablog.com/
