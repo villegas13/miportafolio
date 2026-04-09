@@ -1,5 +1,5 @@
 <h1><strong>Portafolio</strong></h1><br>
-<strong>Aplicaciones en PHP</strong><br>
+<strong>Aplicaciones en PHP, Mysql, IA </strong><br>
 https://demo.tutiendavirtual.top/<br>
 https://demotiendafree.tutiendavirtual.top/<br>
 <strong>Páginas en wordpress:</strong><br>
